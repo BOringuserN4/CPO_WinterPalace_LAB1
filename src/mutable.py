@@ -48,8 +48,8 @@ class BTNode(object):
 class BTree(object):
     def __init__(self, root=None):
         self.root = root
-        self.level_queue = []
-        self.cur = 0
+        self.iter_queue = []
+        self.deep = 0
 
     """
     Add a new element
@@ -76,10 +76,25 @@ class BTree(object):
                 else:
                     queue.append(node.rchild)
 
-    # Set an element with specific index / key
-    # def set_element(self, value):
-    #     value = 1
-    #     return value
+    """
+    Set an element with specific index / key (lst.set(1, 3)) if applicable.
+    In this case, I can only convert the bt tree into a list type and then 
+    modify the value in the list.
+    """
+
+    def set_element(self, pos, value):
+        tmp_list = self.to_list()
+        length = len(tmp_list)
+        if pos < 0 or pos > length:
+            return False
+        else:
+            tmp_list[pos] = value
+            self.from_list(tmp_list)
+            return self
+
+    """
+    Parent method is used in reduce function and some of methods using the same idea
+    """
 
     def parent(self, value):
         if self.root.value == value:
@@ -283,46 +298,55 @@ class BTree(object):
     Data structure should be an iterator in Python style
     """
 
-    # still have problem
     def __iter__(self):
         if self.root is None:
-            self.cur = 0
+            self.deep = 0
             return self
-        self.level_queue.append(self.root)
-        self.cur += 1
+        self.iter_queue.append(self.root)
+        self.deep += 1
         return self
 
-    # still have problem
+    """
+    An iterator object implements __next__, which is expected to return the next element of the 
+    iterable object that returned it, and to raise a StopIteration exception when no more elements 
+    are available.
+    """
+
     def __next__(self):
-        if self.cur == 0:
+        # signals "the end"
+        if self.deep == 0:
             raise StopIteration
+        # Add left and right subtrees to the queue
         if self.root.left is not None:
-            self.level_queue.append(self.root.left)
+            self.iter_queue.append(self.root.left)
         if self.root.right is not None:
-            self.level_queue.append(self.root.right)
-        tmp = self.level_queue[self.cur - 1].value
-        if self.cur < len(self.level_queue):
-            self.root = self.level_queue[self.cur]
-            self.cur += 1
+            self.iter_queue.append(self.root.right)
+        nxt = self.iter_queue[self.deep - 1].value
+
+        if self.deep < len(self.iter_queue):
+            self.root = self.iter_queue[self.deep]
+            self.deep += 1
         else:
-            self.root = self.level_queue[0]
-            self.cur = 0
-        return tmp
+            # iterator the last element
+            self.root = self.iter_queue[0]
+            self.deep = 0
+        return nxt
 
     """
     Data structure should be a monoid and implement empty and concat methods
     """
 
-    # still have problem
-    def empty(self):
-        return None
+    # I still don't understand what should empty function do
+    # def empty(self):
+    #    return None
 
-    # still have problem
+    # According to my understanding, what this function should return is the sum of two bt trees
     def concat(self, bt1, bt2):
         if not bt1:
             return bt2
         if not bt2:
             return bt1
+        # return the new BT tree
         new_root = BTNode(bt1.value + bt2.value)
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
