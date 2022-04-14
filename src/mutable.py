@@ -42,7 +42,7 @@ class BTree(object):
 
     """
     Set an element with specific index / key (lst.set(1, 3))
-    if applicable.In this case, I can only convert the bt 
+    if applicable.In this case, I can only convert the bt
     tree into a list type and then modify the value in the list.
     """
 
@@ -83,7 +83,7 @@ class BTree(object):
         return None
 
     """
-    Remove an element by 
+    Remove an element by
     - value for sets value
     """
 
@@ -96,7 +96,7 @@ class BTree(object):
         parent_node = self.parent(value)
         # If parent_node is not None
         if parent_node:
-            # The parent_node of the deleted node has been found, 
+            # The parent_node of the deleted node has been found,
             # now just find the side that should be deleted
             if parent_node.left.value == value:
                 delete_node = parent_node.left
@@ -246,11 +246,11 @@ class BTree(object):
         return self
 
     """
-    Reduce–process structure elements to 
+    Reduce–process structure elements to
     build a return value by specific functions
     """
 
-    # I have some doubts about this function, 
+    # I have some doubts about this function,
     # is this to compress the elements?
     def reduce(self, f, initial_state=0):
         state = initial_state
@@ -277,10 +277,10 @@ class BTree(object):
         return self
 
     """
-    An iterator object implements __next__, 
-    which is expected to return the next element of the 
-    iterable object that returned it, 
-    and to raise a StopIteration exception 
+    An iterator object implements __next__,
+    which is expected to return the next element of the
+    iterable object that returned it,
+    and to raise a StopIteration exception
     when no more elements are available.
     """
 
@@ -305,7 +305,7 @@ class BTree(object):
         return nxt
 
     """
-    Data structure should be a monoid and 
+    Data structure should be a monoid and
     implement empty and concat methods
     """
 
