@@ -64,17 +64,17 @@ class BTree(object):
 
             while len(queue) > 0:
                 node = queue.pop(0)
-                if not node.lchild:
+                if not node.left:
                     node.left = BTNode(value)
                     return
                 else:
-                    queue.append(node.lchild)
+                    queue.append(node.left)
 
-                if not node.rchild:
+                if not node.right:
                     node.right = BTNode(value)
                     return
                 else:
-                    queue.append(node.rchild)
+                    queue.append(node.right)
 
     """
     Set an element with specific index / key (lst.set(1, 3)) if applicable.
@@ -89,6 +89,7 @@ class BTree(object):
             return False
         else:
             tmp_list[pos] = value
+            self.root = None
             self.from_list(tmp_list)
             return self
 
@@ -247,16 +248,13 @@ class BTree(object):
     Filter data structure by specific predicate (lst.filter(is_even))
     """
 
-    def filter(self, p) -> list:
+    def filter(self) -> list:
         lst = self.to_list()
-        i = 0
-        result = []
-        while i < len(lst):
-            if p(lst[i]):
-                result.append(lst[i])
-            else:
-                i += 1
-        return result
+        new_lst = []
+        for i in range(len(lst)):
+            if type(lst[i]) == int:
+                new_lst.append(lst[i])
+        return new_lst
 
     """
     Map structure by specific function (lst.map(increment))
