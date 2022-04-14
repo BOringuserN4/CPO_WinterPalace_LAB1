@@ -6,10 +6,9 @@ Lab 1: Mutable Algorithms and Data Structure Implementation
 
 Objectives:
 
-* Use development tools: Python 3, IDE/source code editor, git, 
-Github Actions, and laboratory work process
-* Design algorithms and data structures in mutable styles
-* Develop unit and property-based tests
+* Use development tools: Python 3, IDE/source code editor, git, Github Actions, and laboratory work process 
+* Design algorithms and data structures in mutable styles 
+* Develop unit and property-based tests 
 
 Variant 3:
 
