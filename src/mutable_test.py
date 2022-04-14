@@ -1,7 +1,8 @@
 """
 For testing, you should use two approaches:
     • unit tests (for all features)
-    • property-based tests (for features with specific properties, such as monoid properties and
+    • property-based tests 
+    (for features with specific properties, such as monoid properties and
     conversation with built-in list).
 """
 
@@ -144,11 +145,15 @@ class TestMutableBTree(unittest.TestCase):
         btree.from_list(a)
         self.assertEqual(btree.size(), len(a))
 
-    @given(a=st.lists(st.integers()), b=st.lists(st.integers()), c=st.lists(st.integers()))
+    @given(a=st.lists(st.integers()), 
+           b=st.lists(st.integers()), 
+           c=st.lists(st.integers()))
     def test_monoid_properties(self, a, b, c):
         """
-        For all a, b and c in S, the equation a + b = b + a holds.
-        For all a, b and c in S, the equation (a + b) + c = a + (b + c) holds.
+        For all a, b and c in S, 
+        the equation a + b = b + a holds.
+        For all a, b and c in S, 
+        the equation (a + b) + c = a + (b + c) holds.
         """
         btree1 = BTree()
         btree1.from_list(a)
@@ -164,9 +169,13 @@ class TestMutableBTree(unittest.TestCase):
         self.assertEqual(btree_A.to_list(), btree_B.to_list())
 
         # (a + b) + c = a + (b + c)
-        btree_A2 = BTree(BTree().concat(BTree().concat(btree1.root, btree2.root), btree3.root))
+        btree_A2 = BTree(BTree().
+                         concat(BTree().
+                                concat(btree1.root, btree2.root), btree3.root))
         # a+(b+c)
-        btree_B2 = BTree(BTree().concat(btree1.root, BTree().concat(btree2.root, btree3.root)))
+        btree_B2 = BTree(BTree().
+                         concat(btree1.root, BTree().
+                                concat(btree2.root, btree3.root)))
         self.assertEqual(btree_A2.to_list(), btree_B2.to_list())
 
     def test_iter(self):
