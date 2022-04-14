@@ -1,39 +1,3 @@
-"""
-For your data structure you should implement the following features (in the brackets you can see
-    examples of API for single-linked list):
-    • Add a new element (lst.add(3))
-    • Set an element with specific index / key (lst.set(1, 3)) if applicable.
-    • Remove an element by (lst.remove(3)):
-        - index for lists
-        - key for dictionaries
-        - value for sets value
-    • Access:
-        - size (lst.size())
-        - is member (lst.member(3))
-        - reverse (lst.reverse() (if applicable)
-    • Conversion from/to built-in list (you should avoid of usage these function into your library):
-        - from_list (lst.from_list([12, 99, 37]))
-        - to_list (lst.to_list())
-    • Filter data structure by specific predicate (lst.filter(is_even))
-    • Map¹ structure by specific function (lst.map(increment))
-    • Reduce² – process structure elements to build a return value by specific functions (lst.reduce(sum))
-    • Data structure should be an iterator³ in Python style [Sayfan, 2016, Chapter 7. Classes & Iterators].
-    • Data structure should be a monoid and implement empty and concat methods:
-
-        Suppose that S is a set, and • is some binary operation S×S→S, then S with • (concat) is
-        a monoid if it satisfies the following two axioms:
-
-        Associativity
-            For all a, b and c in S, the equation (a•b)•c = a•(b•c) holds.
-        Identity element
-            There exists an element e (empty) in S such that for every element a in S, the equations
-            e•a = a•e = a hold.
-        — Wikipedia - Monoid ⁴
-Pay extra attention to return values and corner cases like:
-    • What should happen, if a user puts None value to the data structure?
-    • What should happen, if a user puts elements with different types (e.g., strings and numbers)?
-"""
-
 
 class BTNode(object):
     def __init__(self, value=None, left=None, right=None):
@@ -77,9 +41,9 @@ class BTree(object):
                     queue.append(node.right)
 
     """
-    Set an element with specific index / key (lst.set(1, 3)) if applicable.
-    In this case, I can only convert the bt tree into a list type and then 
-    modify the value in the list.
+    Set an element with specific index / key (lst.set(1, 3))
+    if applicable.In this case, I can only convert the bt 
+    tree into a list type and then modify the value in the list.
     """
 
     def set_element(self, pos, value):
@@ -94,7 +58,8 @@ class BTree(object):
             return self
 
     """
-    Parent method is used in reduce function and some of methods using the same idea
+    Parent method is used in reduce function and
+    some of methods using the same idea
     """
 
     def parent(self, value):
@@ -131,12 +96,14 @@ class BTree(object):
         parent_node = self.parent(value)
         # If parent_node is not None
         if parent_node:
-            # The parent_node of the deleted node has been found, now just find the side that should be deleted
+            # The parent_node of the deleted node has been found, 
+            # now just find the side that should be deleted
             if parent_node.left.value == value:
                 delete_node = parent_node.left
             else:
                 delete_node = parent_node.right
-            # If we want to delete the node, we should refactor the binary tree
+            # If we want to delete the node, we should
+            # refactor the binary tree
             if delete_node.left is None:
                 if parent_node.left.value == value:
                     parent_node.left = delete_node.right
@@ -149,7 +116,8 @@ class BTree(object):
                 else:
                     parent_node.right = delete_node.left
                 return True
-            # This is the most complicated case, the deleted node has both left and right children
+            # This is the most complicated case, the deleted
+            # node has both left and right children
             else:
                 # Previous node and next node are seen as temporary nodes
                 pre_node = delete_node
@@ -172,7 +140,8 @@ class BTree(object):
                 else:
                     parent_node.right = next_node
                 return True
-            # Until here the node has been deleted and the tree has been refactored
+            # Until here the node has been deleted and
+            # the tree has been refactored
         else:
             return False
 
@@ -218,7 +187,8 @@ class BTree(object):
         return False
 
     """
-    Conversion from/to built-in list (you should avoid of usage these function into your library):
+    Conversion from/to built-in list (you should avoid
+    # of usage these function into your library):
     - from_list (lst.from_list([12, 99, 37]))
     - to_list (lst.to_list())
     """
@@ -245,7 +215,7 @@ class BTree(object):
             return left_lst + [self.root.value] + right_lst
 
     """
-    Filter data structure by specific predicate (lst.filter(is_even))
+    Filter data structure by specific predicate
     """
 
     def filter(self) -> list:
@@ -257,7 +227,7 @@ class BTree(object):
         return new_lst
 
     """
-    Map structure by specific function (lst.map(increment))
+    Map structure by specific function
     """
 
     # consistent with parent function idea
@@ -276,10 +246,12 @@ class BTree(object):
         return self
 
     """
-    Reduce – process structure elements to build a return value by specific functions(lst.reduce(sum))
+    Reduce–process structure elements to 
+    build a return value by specific functions
     """
 
-    # I have some doubts about this function, is this to compress the elements?
+    # I have some doubts about this function, 
+    # is this to compress the elements?
     def reduce(self, f, initial_state=0):
         state = initial_state
         lst = self.to_list()
@@ -305,9 +277,11 @@ class BTree(object):
         return self
 
     """
-    An iterator object implements __next__, which is expected to return the next element of the 
-    iterable object that returned it, and to raise a StopIteration exception when no more elements 
-    are available.
+    An iterator object implements __next__, 
+    which is expected to return the next element of the 
+    iterable object that returned it, 
+    and to raise a StopIteration exception 
+    when no more elements are available.
     """
 
     def __next__(self):
@@ -331,14 +305,16 @@ class BTree(object):
         return nxt
 
     """
-    Data structure should be a monoid and implement empty and concat methods
+    Data structure should be a monoid and 
+    implement empty and concat methods
     """
 
     # I still don't understand what should empty function do
     # def empty(self):
     #    return None
 
-    # According to my understanding, what this function should return is the sum of two bt trees
+    # According to my understanding, what this function
+    # should return is the sum of two bt trees
     def concat(self, bt1, bt2):
         if not bt1:
             return bt2
