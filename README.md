@@ -16,8 +16,6 @@ Set based on binary-tree
 
 * You need to check that you implementation corectly works with None value.
 
-
-
 ## Group Information
 
 Group Name: Winter Palace
@@ -28,8 +26,6 @@ Group members information as follows.
 | ---------- | --------------- |
 | 212320024  | Chen Chongzhong |
 | 212320025  | Zuo Yuexin      |
-
-
 
 ## Update Record
 
@@ -43,8 +39,6 @@ Time: 2022/04/12
 
 ---
 
-
-
 The first lab of CPO
 HDU-ID: 212320025
 Name: Zuo Yuexin
@@ -56,8 +50,6 @@ Time: 2022/04/13
 
 ---
 
-
-
 The first lab of CPO
 HDU-ID: 212320024
 Name: Chen Chongzhong
@@ -66,8 +58,6 @@ Time: 2022/04/14
 1. Fixed one function's problem.
 
 2. Completed the unittest and PBT tests in the Design Notes section.
-
-
 
 ## Analysis and Conclusion
 
