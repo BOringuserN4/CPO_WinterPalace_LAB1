@@ -64,7 +64,7 @@ Time: 2022/04/14
 
 In this Lab, we implement the Binary Tree's mutable algorithms and
 data structure Implementation.
-The running result screenshot of unittests is the image named `image/img.png`. 
+The running result screenshot of unittests is the image named `image/img.png`.
 We write two python files,  `mutable.py` and `mutable_test.py`,
 and successfully implement some operations about binary-tree, for example,
 add and remove element,  concat  the trees to the new tree, etc.
