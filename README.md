@@ -6,7 +6,8 @@ Lab 1: Mutable Algorithms and Data Structure Implementation
 
 Objectives:
 
-*  Use development tools: Python 3, IDE/source code editor, git, Github Actions, and laboratory work process
+* Use development tools: Python 3, IDE/source code editor, git, 
+  Github Actions, and laboratory work process
 * Design algorithms and data structures in mutable styles
 * Develop unit and property-based tests
 
@@ -61,8 +62,12 @@ Time: 2022/04/14
 
 ## Analysis and Conclusion
 
-In this Lab, we implement the Binary Tree's mutable algorithms and data structure Implementation. The running result of unit tests result as follows.
+In this Lab, we implement the Binary Tree's mutable algorithms and data structure Implementation.
+The running result of unit tests result as follows.
 
 <img src="./image/img.png"  />
 
-We write two python files,  `mutable.py` and `mutable_test.py`, and successfully implement some operations about binary-tree, for example, add and remove element,  concat  the trees to the new tree, etc. The unittest and PBT tests provides us with great convenience.
+We write two python files,  `mutable.py` and `mutable_test.py`,
+and successfully implement some operations about binary-tree, for example,
+add and remove element,  concat  the trees to the new tree, etc.
+The unittest and PBT tests provides us with great convenience.
