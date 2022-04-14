@@ -65,7 +65,7 @@ In this Lab, we implement the Binary Tree's mutable algorithms and
 data structure Implementation.
 The running result of unit tests result as follows.
 
-<img src="./image/img.png"  />
+<img src="./image/img.png"/>
 
 We write two python files,  `mutable.py` and `mutable_test.py`,
 and successfully implement some operations about binary-tree, for example,
