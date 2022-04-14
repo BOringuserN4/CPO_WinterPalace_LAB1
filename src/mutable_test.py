@@ -1,7 +1,7 @@
 """
 For testing, you should use two approaches:
     • unit tests (for all features)
-    • property-based tests 
+    • property-based tests
     (for features with specific properties, such as monoid properties and
     conversation with built-in list).
 """
@@ -145,14 +145,14 @@ class TestMutableBTree(unittest.TestCase):
         btree.from_list(a)
         self.assertEqual(btree.size(), len(a))
 
-    @given(a=st.lists(st.integers()), 
-           b=st.lists(st.integers()), 
+    @given(a=st.lists(st.integers()),
+           b=st.lists(st.integers()),
            c=st.lists(st.integers()))
     def test_monoid_properties(self, a, b, c):
         """
-        For all a, b and c in S, 
+        For all a, b and c in S,
         the equation a + b = b + a holds.
-        For all a, b and c in S, 
+        For all a, b and c in S,
         the equation (a + b) + c = a + (b + c) holds.
         """
         btree1 = BTree()
