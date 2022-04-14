@@ -75,7 +75,7 @@ In this Lab, we implement the Binary Tree's mutable algorithms and data structur
 
 <img src="./image/img.png"  />
 
-We write two python files,  `mutable.py` and `mutable_test.py`， and successfully implement some operations about binary-tree, for example, add and remove element,  concat  the trees to the new tree, etc. The unittest and PBT tests provides us with great convenience.
+We write two python files,  `mutable.py` and `mutable_test.py`, and successfully implement some operations about binary-tree, for example, add and remove element,  concat  the trees to the new tree, etc. The unittest and PBT tests provides us with great convenience.
 
 
 
