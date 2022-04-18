@@ -230,7 +230,22 @@ class BTree(object):
     Map structure by specific function
     """
 
-    # consistent with parent function idea
+    """
+    Q: Can it be a source of undefined behavior?
+    If yes — give an example and fix it, if not — proof it.
+    """
+
+    """
+    A: From 6.15 of python documentation
+        Python evaluates expressions from left to right. 
+        Notice that while evaluating an assignment, the right-hand 
+        side is evaluated before the left-hand side.
+        
+        So here the functions will be called in order from left to right.
+        So any of the changes you will see will be due to the functions
+        called from left to right.
+    """
+
     def map(self, f):
         if self.root is None:
             return None
@@ -238,7 +253,22 @@ class BTree(object):
         queue.append(self.root)
         while len(queue):
             tmp = queue.pop(0)
-            tmp.value = f(tmp.value)
+            # It's an undefined behavior here, if it happened in c or c++,
+            # different compilers will be very different.
+            val = Value()
+            val.set_value(tmp.value)
+
+            def h(x):
+                x += 1
+                val.set_value(x)
+                return x
+
+            def g(x):
+                x *= 2
+                val.set_value(x)
+                return x
+            # A detailed description is proved in mutable_test.py
+            tmp.value = f(h(val.get_vlaue()), g(val.get_vlaue()))
             if tmp.left is not None:
                 queue.append(tmp.left)
             if tmp.right is not None:
