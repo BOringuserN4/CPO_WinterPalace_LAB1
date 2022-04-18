@@ -92,6 +92,6 @@ Time: 2022/04/18
 
 We implement the Binary Tree's mutable algorithms and data structure Implementation.
 The running result screenshot of unittests is the image named `image/img.png`.
-We write two python files,  `mutable.py` and `mutable_test.py`, and successfully implement some operations.
+We write two python files, `mutable.py` and `mutable_test.py`, and implement some operations.
 For example, add and remove element, concat  the trees to the new tree, etc.
 The unittest and PBT tests provides us with great convenience.
