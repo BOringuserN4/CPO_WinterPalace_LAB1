@@ -67,12 +67,12 @@ HDU-ID: 212320025
 Name: Zuo Yuexin
 Time: 2022/04/18
 
-1.Add a class named Value which is used to provide static value. 
+1.Add a class named Value which is used to provide static value.
 Before I used this method, lot of ways had been tried. I want to
 get the same effect as static in Java. Unfortunately, I'm not that familiar with Python syntax.
 
-2.I tested different way to test undefined behavior. 
-In C++ it's can be very easy, such as f(i++,i++) can cause undefined behavior. 
+2.I tested different way to test undefined behavior.
+In C++ it's can be very easy, such as f(i++,i++) can cause undefined behavior.
 So I tried the same idea. It proved that it can be a source of undefined behavior. An example is shown in `mutable_test.py`.
 
 ---
