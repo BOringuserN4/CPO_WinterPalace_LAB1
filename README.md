@@ -69,7 +69,8 @@ Time: 2022/04/18
 
 1.Add a class named Value which is used to provide static value.
 Before I used this method, lot of ways had been tried. 
-I want to get the same effect as static in Java. Unfortunately, I'm not that familiar with Python syntax.
+I want to get the same effect as static in Java. Unfortunately.
+I'm not that familiar with Python syntax.
 
 2.I tested different way to test undefined behavior.
 In C++ it's can be very easy, such as f(i++,i++) can cause undefined behavior.
@@ -90,5 +91,7 @@ Time: 2022/04/18
 ## Analysis and Conclusion
 
 In this Lab, we implement the Binary Tree's mutable algorithms and data structure Implementation.
-The running result screenshot of unittests is the image named `image/img.png`. We write two python files,  `mutable.py` and `mutable_test.py`, and successfully implement some operations about binary-tree, for example, add and remove element, concat  the trees to the new tree, etc. The unittest and PBT tests provides us with great convenience.
-
+The running result screenshot of unittests is the image named `image/img.png`.
+We write two python files,  `mutable.py` and `mutable_test.py`, and successfully implement some operations about binary-tree.
+For example, add and remove element, concat  the trees to the new tree, etc.
+The unittest and PBT tests provides us with great convenience.
