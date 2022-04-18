@@ -351,7 +351,6 @@ class BTree(object):
     implement empty and concat methods
     """
 
-    # I still don't understand what should empty function do
     def empty(self):
         return None
 
