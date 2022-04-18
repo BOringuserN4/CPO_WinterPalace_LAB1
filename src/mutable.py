@@ -9,6 +9,18 @@ class BTNode(object):
         return self.value
 
 
+# This class is used to provide static values
+class Value(object):
+    value = 0
+
+    def get_vlaue(self):
+        return Value.value
+
+    def set_value(self, item):
+        Value.value = item
+        return Value.value
+    
+
 class BTree(object):
     def __init__(self, root=None):
         self.root = root
