@@ -78,17 +78,33 @@ class TestMutableBTree(unittest.TestCase):
         btree = BTree().from_list([0, 1, 'a', 2, 'b'])
         self.assertEqual(btree.filter(), [2, 1, 0])
 
+#     def test_map(self):
+#         lst = [0, 1, 2, 3, 4, 5]
+#         btree = BTree()
+#         btree.from_list(lst)
+#         btree.map(str)
+#         self.assertEqual(btree.to_list(), ["3", "1", "4", "0", "5", "2"])
+
+#         btree = BTree()
+#         btree.from_list(lst)
+#         btree.map(lambda x: x + 1)
+#         self.assertEqual(btree.to_list(), [4, 2, 5, 1, 6, 3])
+
     def test_map(self):
         lst = [0, 1, 2, 3, 4, 5]
         btree = BTree()
         btree.from_list(lst)
-        btree.map(str)
-        self.assertEqual(btree.to_list(), ["3", "1", "4", "0", "5", "2"])
 
-        btree = BTree()
-        btree.from_list(lst)
-        btree.map(lambda x: x + 1)
-        self.assertEqual(btree.to_list(), [4, 2, 5, 1, 6, 3])
+        def f(x, y):
+            return x+y
+
+        btree.map(f)
+        # Here python will calculate h() first and then g().
+        # So the 12 = 4 + 4*2,6 = 2 + 2*2 and so on. But when i
+        # swap the order of the two functions the right answer become
+        # [13, 5, 17, 1, 21, 9]. It prove that python evaluates
+        # expressions from left to right.
+        self.assertEqual(btree.to_list(), [12, 6, 15, 3, 18, 9])
 
     def test_reduce(self):
         # sum of empty btree
