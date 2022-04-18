@@ -352,8 +352,8 @@ class BTree(object):
     """
 
     # I still don't understand what should empty function do
-    # def empty(self):
-    #    return None
+    def empty(self):
+        return None
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
