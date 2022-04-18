@@ -150,10 +150,12 @@ class TestMutableBTree(unittest.TestCase):
            c=st.lists(st.integers()))
     def test_monoid_properties(self, a, b, c):
         """
-        For all a, b and c in S,
-        the equation a + b = b + a holds.
+        Associativity
         For all a, b and c in S,
         the equation (a + b) + c = a + (b + c) holds.
+        Identity element
+        There exists an element 0 in S,
+        the equations 0 + a = a + 0 = a holds.
         """
         btree1 = BTree()
         btree1.from_list(a)
@@ -162,21 +164,23 @@ class TestMutableBTree(unittest.TestCase):
         btree3 = BTree()
         btree3.from_list(c)
 
-        # the equation a + b = b + a
-        btree_A = BTree(BTree().concat(btree1.root, btree2.root))
-        btree_B = BTree(BTree().concat(btree2.root, btree1.root))
-
-        self.assertEqual(btree_A.to_list(), btree_B.to_list())
-
         # (a + b) + c = a + (b + c)
         btree_A2 = BTree(BTree().
                          concat(BTree().
                                 concat(btree1.root, btree2.root), btree3.root))
-        # a+(b+c)
         btree_B2 = BTree(BTree().
                          concat(btree1.root, BTree().
                                 concat(btree2.root, btree3.root)))
         self.assertEqual(btree_A2.to_list(), btree_B2.to_list())
+
+        # 0 + a = a + 0 = a
+        btree4 = BTree()
+        btree5 = BTree()
+        self.assertEqual(BTree(btree5.
+                               concat(btree1.root, btree4.empty())).to_list(),
+                         BTree(btree5.
+                               concat(btree4.empty(), btree1.root)).to_list()
+                         )
 
     def test_iter(self):
         lst = [0, 1, 2, 3, 4, 5]
@@ -187,6 +191,18 @@ class TestMutableBTree(unittest.TestCase):
         for item in btree.to_list():
             lst2.append(item)
         self.assertEqual(btree.to_list(), lst2)
+
+        for e in lst2:
+            print(e)
+
+        i1 = iter(lst2)
+        i2 = iter(lst2)
+
+        next(i1)  # -> 3
+        next(i1)  # -> 1
+        next(i2)  # -> 3
+        next(i2)  # -> 1
+        next(i1)  # -> 4
 
         btree2 = BTree()
         iteration = iter(btree2)
