@@ -28,7 +28,7 @@ Group members information as follows.
 | 212320024  | Chen Chongzhong |
 | 212320025  | Zuo Yuexin      |
 
-## Update Record
+## Change Log
 
 The first lab of CPO
 HDU-ID: 212320025
@@ -67,22 +67,23 @@ HDU-ID: 212320025
 Name: Zuo Yuexin
 Time: 2022/04/18
 
-1.Add a class named Value which is used to provide static value.
-Before I used this method, lot of ways had been tried. I want to
-get the same effect as static in java. Unfortunately, I'm not that
-familiar with Python syntax.
+1.Add a class named Value which is used to provide static value. Before I used this method, lot of ways had been tried. I want to
+get the same effect as static in java. Unfortunately, I'm not that familiar with Python syntax.
 
-2.I tested different way to test undefined behavior. In c++ it's can
-be very easy, such as f(i++,i++) can cause undefined behavior. So I tried
-the same idea. It proved that it can be a source of undefined behavior.
-An example is shown in mutable_test.py.
+2.I tested different way to test undefined behavior. In c++ it's can be very easy, such as f(i++,i++) can cause undefined behavior. So I tried the same idea. It proved that it can be a source of undefined behavior. An example is shown in `mutable_test.py`.
+
+---
+
+The first lab of CPO
+HDU-ID: 212320024
+Name: Chen Chongzhong
+Time: 2022/04/18
+
+1.Fixed iterator tests in `mutable_test.py`.
+
+2.Fixed test function `test_monoid_properties` about monoid property.
 
 ## Analysis and Conclusion
 
-In this Lab, we implement the Binary Tree's mutable algorithms and
-data structure Implementation.
-The running result screenshot of unittests is the image named `image/img.png`.
-We write two python files,  `mutable.py` and `mutable_test.py`,
-and successfully implement some operations about binary-tree, for example,
-add and remove element,  concat  the trees to the new tree, etc.
-The unittest and PBT tests provides us with great convenience.
+In this Lab, we implement the Binary Tree's mutable algorithms and data structure Implementation. The running result screenshot of unittests is the image named `image/img.png`. We write two python files,  `mutable.py` and `mutable_test.py`, and successfully implement some operations about binary-tree, for example, add and remove element, concat  the trees to the new tree, etc. The unittest and PBT tests provides us with great convenience.
+
