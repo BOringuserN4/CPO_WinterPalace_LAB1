@@ -67,7 +67,7 @@ HDU-ID: 212320025
 Name: Zuo Yuexin
 Time: 2022/04/18
 
-1.Add a class named Value which is used to provide static value. 
+1.Add a class named Value which is used to provide static value.
 Before I used this method, lot of ways had been tried. I want to
 get the same effect as static in java. Unfortunately, I'm not that
 familiar with Python syntax.
