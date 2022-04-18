@@ -11,7 +11,7 @@ import unittest
 from hypothesis import given
 import hypothesis.strategies as st
 
-from mutable import *
+from mutable import BTNode, BTree
 
 
 class TestMutableBTree(unittest.TestCase):
@@ -77,18 +77,6 @@ class TestMutableBTree(unittest.TestCase):
     def test_filter(self):
         btree = BTree().from_list([0, 1, 'a', 2, 'b'])
         self.assertEqual(btree.filter(), [2, 1, 0])
-
-#     def test_map(self):
-#         lst = [0, 1, 2, 3, 4, 5]
-#         btree = BTree()
-#         btree.from_list(lst)
-#         btree.map(str)
-#         self.assertEqual(btree.to_list(), ["3", "1", "4", "0", "5", "2"])
-
-#         btree = BTree()
-#         btree.from_list(lst)
-#         btree.map(lambda x: x + 1)
-#         self.assertEqual(btree.to_list(), [4, 2, 5, 1, 6, 3])
 
     def test_map(self):
         lst = [0, 1, 2, 3, 4, 5]
