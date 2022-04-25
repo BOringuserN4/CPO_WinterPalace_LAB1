@@ -81,19 +81,24 @@ class TestMutableBTree(unittest.TestCase):
     def test_map(self):
         def f(x):
             return abs(x)
-        # What happens, if you pass `abs` as argument for `map` function?
-        # Can you provide data, where result is not determined?
+        '''
+        What happens, if you pass `abs` as argument for `map` function?
+        Can you provide data, where result is not determined?
+        '''
         lst = [0, 1, 2, 3, 4, 5]
         btree = BTree()
         btree.from_list(lst)
         btree.map(f)
         self.assertEqual(btree.to_list(), [3, 1, 4, 0, 5, 2])
-        # Same as above test, I passed the absolute value function to the map()
-        # and tested a set of data to be its inverse. In the function I wrote to construct the tree,
-        # I did not judge how to construct a tree based on the size of the value passed in.
-        # So the result is definitely certain. If it means Can you provide data,
-        # whether result is not determined? When changed whether to where, i can't understand what that
-        # mean.
+        '''
+        Same as above test, I passed the absolute value function to the map()
+        and tested a set of data to be its inverse.
+        In the function, I wrote to construct the tree, I did not judge how
+        to construct a tree based on the size of the value passed in.
+        So the result is definitely certain. If it means Can you provide data,
+        whether result is not determined?
+        When changed whether to where, i can't understand what that means.
+        '''
         lst = [0, -1, -2, -3, -4, -5]
         btree = BTree()
         btree.from_list(lst)
