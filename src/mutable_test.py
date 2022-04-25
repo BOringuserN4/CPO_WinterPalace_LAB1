@@ -79,20 +79,26 @@ class TestMutableBTree(unittest.TestCase):
         self.assertEqual(btree.filter(), [2, 1, 0])
 
     def test_map(self):
+        def f(x):
+            return abs(x)
+        # What happens, if you pass `abs` as argument for `map` function?
+        # Can you provide data, where result is not determined?
         lst = [0, 1, 2, 3, 4, 5]
         btree = BTree()
         btree.from_list(lst)
-
-        def f(x, y):
-            return x+y
-
         btree.map(f)
-        # Here python will calculate h() first and then g().
-        # So the 12 = 4 + 4*2,6 = 2 + 2*2 and so on. But when i
-        # swap the order of the two functions the right answer become
-        # [13, 5, 17, 1, 21, 9]. It prove that python evaluates
-        # expressions from left to right.
-        self.assertEqual(btree.to_list(), [12, 6, 15, 3, 18, 9])
+        self.assertEqual(btree.to_list(), [3, 1, 4, 0, 5, 2])
+        # Same as above test, I passed the absolute value function to the map()
+        # and tested a set of data to be its inverse. In the function I wrote to construct the tree,
+        # I did not judge how to construct a tree based on the size of the value passed in.
+        # So the result is definitely certain. If it means Can you provide data,
+        # whether result is not determined? When changed whether to where, i can't understand what that
+        # mean.
+        lst = [0, -1, -2, -3, -4, -5]
+        btree = BTree()
+        btree.from_list(lst)
+        btree.map(f)
+        self.assertEqual(btree.to_list(), [3, 1, 4, 0, 5, 2])
 
     def test_reduce(self):
         # sum of empty btree
