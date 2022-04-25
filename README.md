@@ -91,14 +91,15 @@ Time: 2022/04/18
 ---
 
 The first lab of CPO
-HDU-ID: 212320024
+HDU-ID: 212320025
 Name: Zuo Yuexin
 Time: 2022/04/25
 
-1.Same as above test, I passed the absolute value function to the map() and tested a set of data to be its inverse.
-In the function I wrote to construct the tree, I did not judge how to construct a tree based on the size of the value passed in.
-So the result is definitely certain. If it means Can you provide data, whether result is not determined?
-When changed whether to where, i can't understand what that mean.
+1.Same as above test, I passed the absolute value function to the map()
+and tested a set of data to be its inverse.In the function I wrote to construct the tree,
+I did not judge how to construct a tree based on the size of the value passed in.
+So the result is definitely certain. If it means Can you provide data, whether
+result is not determined? When changed whether to where, i can't understand what that mean.
 
 2.Update the map function.
 
