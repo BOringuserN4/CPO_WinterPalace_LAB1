@@ -30,8 +30,8 @@ Group members information as follows.
 
 ## Project structure
 
-1.`mutable_BTree.py` -- implementation of `BTree` class with all features.
-2.`mutable_Tree_test.py` -- unit and PBT tests for `mutable_BTree`.
+* `mutable_BTree.py` -- implementation of `BTree` class with all features.
+* `mutable_Tree_test.py` -- unit and PBT tests for `mutable_BTree`.
 
 ## Changelog
 
