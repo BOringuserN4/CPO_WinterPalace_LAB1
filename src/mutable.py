@@ -279,8 +279,9 @@ class BTree(object):
                 x *= 2
                 val.set_value(x)
                 return x
+
             # A detailed description is proved in mutable_test.py
-            tmp.value = f(h(val.get_vlaue()), g(val.get_vlaue()))
+            tmp.value = f(val.get_vlaue())
             if tmp.left is not None:
                 queue.append(tmp.left)
             if tmp.right is not None:
