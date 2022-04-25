@@ -11,7 +11,7 @@ import unittest
 from hypothesis import given
 import hypothesis.strategies as st
 
-from mutable import BTNode, BTree
+from mutable_BTree import BTNode, BTree
 
 
 class TestMutableBTree(unittest.TestCase):
@@ -208,11 +208,17 @@ class TestMutableBTree(unittest.TestCase):
         i1 = iter(lst2)
         i2 = iter(lst2)
 
-        next(i1)  # -> 3
-        next(i1)  # -> 1
-        next(i2)  # -> 3
-        next(i2)  # -> 1
-        next(i1)  # -> 4
+        # lst2 = [3, 1, 4, 0, 5, 2]
+        item = next(i1)  # -> 3
+        self.assertEqual(item, 3)
+        item = next(i1)  # -> 1
+        self.assertEqual(item, 1)
+        item = next(i2)  # -> 3
+        self.assertEqual(item, 3)
+        item = next(i2)  # -> 1
+        self.assertEqual(item, 1)
+        item = next(i1)  # -> 4
+        self.assertEqual(item, 4)
 
         btree2 = BTree()
         iteration = iter(btree2)
