@@ -1,4 +1,4 @@
-# CPO_WinterPalace_LAB1
+# Winter Palace - lab 1 - variant 3
 
 ## Description
 
@@ -7,7 +7,7 @@ Lab 1: Mutable Algorithms and Data Structure Implementation
 Objectives:
 
 * Use development tools:
-    Python 3, IDE/source code editor, git, Github Actions, and laboratory work process.
+  Python 3, IDE/source code editor, git, Github Actions, and laboratory work process.
 * Design algorithms and data structures in mutable styles.
 * Develop unit and property-based tests.
 
@@ -28,12 +28,17 @@ Group members information as follows.
 | 212320024  | Chen Chongzhong |
 | 212320025  | Zuo Yuexin      |
 
-## Change Log
+## Project structure
+
+- `mutable_BTree.py` -- implementation of `BTree` class with all features.
+- `mutable_Tree_test.py` -- unit and PBT tests for `mutable_BTree`.
+
+## Changelog
 
 The first lab of CPO
 HDU-ID: 212320025
 Name: Zuo Yuexin
-Time: 2022/04/12
+Date: 2022/04/12
 
 1.Completed the general part of the lab. Such as add,remove,size and so on.
 2.Iteration and merging still have some problems to be solved.
@@ -43,7 +48,7 @@ Time: 2022/04/12
 The first lab of CPO
 HDU-ID: 212320025
 Name: Zuo Yuexin
-Time: 2022/04/13
+Date: 2022/04/13
 
 1.Fixed some problems and finished the set_element method.
 
@@ -54,7 +59,7 @@ Time: 2022/04/13
 The first lab of CPO
 HDU-ID: 212320024
 Name: Chen Chongzhong
-Time: 2022/04/14
+Date: 2022/04/14
 
 1.Fixed one function's problem.
 
@@ -65,7 +70,7 @@ Time: 2022/04/14
 The first lab of CPO
 HDU-ID: 212320025
 Name: Zuo Yuexin
-Time: 2022/04/18
+Date: 2022/04/18
 
 1.Add a class named Value which is used to provide static value.
 Before I used this method, lot of ways had been tried.
@@ -82,7 +87,7 @@ An example is shown in `mutable_test.py`.
 The first lab of CPO
 HDU-ID: 212320024
 Name: Chen Chongzhong
-Time: 2022/04/18
+Date: 2022/04/18
 
 1.Fixed iterator tests in `mutable_test.py`.
 
@@ -91,24 +96,46 @@ Time: 2022/04/18
 ---
 
 The first lab of CPO
-HDU-ID: 212320025
-Name: Zuo Yuexin
-Time: 2022/04/25
 
-1.Same as above test, I passed the absolute value function to the map()
-and tested a set of data to be its inverse.In the function I wrote to construct
-the tree,I did not judge how to construct a tree based on the size of the value
-passed in. So the result is definitely certain. If it means Can you provide data,
-whether result is not determined? When changed whether to where, i can't understand
-what that mean.
+HDU-ID: 212320025
+
+Name: Zuo Yuexin
+
+Date: 2022/04/25
+
+1.Same as above test, I passed the absolute value function to the map() and
+tested a set of data to be its inverse.
+In the function, I wrote to construct the tree, I did not judge how
+to construct a tree based on the size of the value passed in.
+So the result is definitely certain. If it means Can you provide data, whether
+result is not determined?
+When changed whether to where, i can't understand what that means.
 
 2.Update the map function.
 
-## Analysis and Conclusion
+---
+
+The first lab of CPO
+
+HDU-ID: 212320024
+
+Name: Chen Chongzhong
+
+Date: 2022/04/25
+
+1.Add much more assertions for checking behaviour in function `test_iter`.
+
+## Design notes
 
 We implement the Binary Tree's mutable algorithms and data structure Implementation.
+
 The running result screenshot of unittests is the image named `image/img.png`.
-We write two python files, `mutable.py` and `mutable_test.py`.
+
+We write two python files, `mutable_BTree.py` and `mutable_BTree_test.py`.
+
 And successfully implement some operations about Binary Tree.
+
 For example, add and remove element, concat  the trees to the new tree, etc.
+
 The unittest and PBT tests provides us with great convenience.
+
