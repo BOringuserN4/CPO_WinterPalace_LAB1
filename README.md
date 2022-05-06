@@ -125,6 +125,15 @@ Date: 2022/04/25
 
 1.Add much more assertions for checking behaviour in function `test_iter`.
 
+---
+
+The first lab of CPO
+HDU-ID: 212320025
+Name: Zuo Yuexin
+Date: 2022/05/06
+
+1.Add docstrings for all functions.
+
 ## Design notes
 
 We implement the Binary Tree's mutable algorithms and data structure Implementation.
