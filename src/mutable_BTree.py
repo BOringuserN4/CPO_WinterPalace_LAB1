@@ -288,10 +288,10 @@ class BTree(object):
 
     """
     A: From 6.15 of python documentation
-        Python evaluates expressions from left to right. 
-        Notice that while evaluating an assignment, the right-hand 
+        Python evaluates expressions from left to right.
+        Notice that while evaluating an assignment, the right-hand
         side is evaluated before the left-hand side.
-        
+
         So here the functions will be called in order from left to right.
         So any of the changes you will see will be due to the functions
         called from left to right.
