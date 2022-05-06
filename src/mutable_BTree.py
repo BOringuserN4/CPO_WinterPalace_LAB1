@@ -1,11 +1,17 @@
-
 class BTNode(object):
     def __init__(self, value=None, left=None, right=None):
+        """
+        init the BTNode
+        :param value: None
+        :param left: None
+        :param right: None
+        """
         self.value = value
         self.left = left
         self.right = right
 
     def get_value(self):
+        """return value"""
         return self.value
 
 
@@ -14,15 +20,21 @@ class Value(object):
     value = 0
 
     def get_vlaue(self):
+        """get value"""
         return Value.value
 
     def set_value(self, item):
+        """set value"""
         Value.value = item
         return Value.value
 
 
 class BTree(object):
     def __init__(self, root=None):
+        """
+        init the BTree
+        :param root: root
+        """
         self.root = root
         self.iter_queue = []
         self.deep = 0
@@ -32,6 +44,9 @@ class BTree(object):
     """
 
     def add(self, value):
+        """
+        add node to tree
+        """
         if self.root is None:
             self.root = BTNode(value)
         else:
@@ -59,6 +74,9 @@ class BTree(object):
     """
 
     def set_element(self, pos, value):
+        """
+        Set an element with specific index / key
+        """
         tmp_list = self.to_list()
         length = len(tmp_list)
         if pos < 0 or pos > length:
@@ -75,6 +93,9 @@ class BTree(object):
     """
 
     def parent(self, value):
+        """
+        Parent method is used in reduce function
+        """
         if self.root.value == value:
             return None
         """Use the stack to iterate all nodes"""
@@ -100,6 +121,9 @@ class BTree(object):
     """
 
     def remove(self, value):
+        """
+        Remove an element
+        """
         if self.root is None:
             return False
         if self.root.value == value:
@@ -165,6 +189,9 @@ class BTree(object):
     """
 
     def size(self):
+        """
+        Return the size of tree
+        """
         if self.root is None:
             return 0
         # Use recursive method
@@ -182,6 +209,9 @@ class BTree(object):
 
     # consistent with parent function idea
     def is_member(self, value) -> bool:
+        """
+        Determine whether it is a member node of the tree
+        """
         if self.root.value == value:
             return True
         node_stack = list()
@@ -206,12 +236,18 @@ class BTree(object):
     """
 
     def from_list(self, lst):
+        """
+        Conversion from/to built-in list
+        """
         for index in range(len(lst)):
             self.add(lst[index])
         return self
 
     # consistent with size function idea
     def to_list(self):
+        """
+        Convert tree to list
+        """
         if self.root is None:
             return []
         else:
@@ -231,6 +267,9 @@ class BTree(object):
     """
 
     def filter(self) -> list:
+        """
+        Filter data structure by specific predicate
+        """
         lst = self.to_list()
         new_lst = []
         for i in range(len(lst)):
@@ -249,16 +288,19 @@ class BTree(object):
 
     """
     A: From 6.15 of python documentation
-        Python evaluates expressions from left to right.
-        Notice that while evaluating an assignment, the right-hand
+        Python evaluates expressions from left to right. 
+        Notice that while evaluating an assignment, the right-hand 
         side is evaluated before the left-hand side.
-
+        
         So here the functions will be called in order from left to right.
         So any of the changes you will see will be due to the functions
         called from left to right.
     """
 
     def map(self, f):
+        """
+        Build a map data structure for the tree
+        """
         if self.root is None:
             return None
         queue = list()
@@ -293,9 +335,10 @@ class BTree(object):
     build a return value by specific functions
     """
 
-    # I have some doubts about this function,
-    # is this to compress the elements?
     def reduce(self, f, initial_state=0):
+        """
+        Reduce–process structure elements
+        """
         state = initial_state
         lst = self.to_list()
         # i = 0
@@ -353,11 +396,17 @@ class BTree(object):
     """
 
     def empty(self):
+        """
+        Return a empty node
+        """
         return None
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
     def concat(self, bt1, bt2):
+        """
+        Sum of two bt trees
+        """
         if not bt1:
             return bt2
         if not bt2:
