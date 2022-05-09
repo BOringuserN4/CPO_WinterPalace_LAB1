@@ -96,11 +96,8 @@ Date: 2022/04/18
 ---
 
 The first lab of CPO
-
 HDU-ID: 212320025
-
 Name: Zuo Yuexin
-
 Date: 2022/04/25
 
 1.Same as above test, I passed the absolute value function to the map() and
@@ -133,6 +130,15 @@ Name: Zuo Yuexin
 Date: 2022/05/06
 
 1.Add docstrings for all functions.
+
+---
+
+The first lab of CPO
+HDU-ID: 212320024
+Name: Chen Chongzhong
+Date: 2022/05/09
+
+1.Add type hints.
 
 ## Design notes
 
