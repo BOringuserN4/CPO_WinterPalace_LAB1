@@ -1,10 +1,10 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Union
+from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
-class BTNode(object):
+class BTNode(Generic[T]):
     def __init__(self, value=None, left=None, right=None) -> None:
         """
         init the BTNode
@@ -22,27 +22,27 @@ class BTNode(object):
 
 
 # This class is used to provide static values
-class Value(object):
+class Value(Generic[T]):
     value = 0
 
-    def get_vlaue(self) -> T:
+    def get_vlaue(self) -> Union[str, int, float]:
         """get value"""
         return Value.value
 
-    def set_value(self, item: T1) -> T:
+    def set_value(self, item: T1) -> Union[str, int, float]:
         """set value"""
         Value.value = item
         return Value.value
 
 
-class BTree(object):
+class BTree(Generic[T]):
     def __init__(self, root=None) -> None:
         """
         init the BTree
         :param root: root
         """
         self.root = root
-        self.iter_queue: List[T1] = []
+        self.iter_queue: List[T] = []
         self.deep = 0
 
     """
