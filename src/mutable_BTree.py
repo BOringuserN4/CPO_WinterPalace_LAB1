@@ -37,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: 'BTNode' = None) -> None:  # type: ignore
+    def __init__(self, root=None) -> None:  # type: ignore
         """
         init the BTree
         :param root: root
@@ -381,7 +381,7 @@ class BTree(Generic[T]):
     when no more elements are available.
     """
 
-    def __next__(self) -> Any:
+    def __next__(self) -> T1:
         """
         Return the next element of BTree or StopIteration
         """
