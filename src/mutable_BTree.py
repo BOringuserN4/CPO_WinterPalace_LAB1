@@ -5,7 +5,7 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None) -> None:
+    def __init__(self, value=None, left=None, right=None) -> None:  # type: ignore
         """
         init the BTNode
         :param value: None
@@ -79,7 +79,7 @@ class BTree(Generic[T]):
     tree into a list type and then modify the value in the list.
     """
 
-    def set_element(self, pos: int, value: T1) -> Union['BTree', bool]:
+    def set_element(self, pos: int, value: T1) -> Union['BTree', bool]:  # type: ignore
         """
         Set an element with specific index / key
         """
@@ -98,7 +98,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: T1) -> Union['BTNode', None]:
+    def parent(self, value: T1) -> Any:
         """
         Parent method is used in reduce function
         """
@@ -303,7 +303,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:
+    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:  # type: ignore
         """
         Build a map data structure for the tree
         """
@@ -409,7 +409,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> 'BTNode':
+    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> 'BTNode':  # type: ignore
         """
         Sum of two bt trees
         """
@@ -418,7 +418,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BT tree
-        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode
+        new_root = BTNode(bt1.value + bt2.value)  # type: ignore
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
