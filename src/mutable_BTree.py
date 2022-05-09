@@ -241,7 +241,7 @@ class BTree(Generic[T]):
     - to_list (lst.to_list())
     """
 
-    def from_list(self, lst: List) -> 'BTree':
+    def from_list(self, lst: List[Any]) -> 'BTree':
         """
         Conversion from/to built-in list
         """
@@ -250,7 +250,7 @@ class BTree(Generic[T]):
         return self
 
     # consistent with size function idea
-    def to_list(self) -> List:
+    def to_list(self) -> List[Any]:
         """
         Convert tree to list
         """
@@ -272,7 +272,7 @@ class BTree(Generic[T]):
     Filter data structure by specific predicate
     """
 
-    def filter(self) -> List:
+    def filter(self) -> List[Any]:
         """
         Filter data structure by specific predicate
         """
@@ -303,7 +303,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable) -> Union['BTree', None]:
+    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:
         """
         Build a map data structure for the tree
         """
@@ -341,7 +341,7 @@ class BTree(Generic[T]):
     build a return value by specific functions
     """
 
-    def reduce(self, f: Callable, initial_state: int = 0) -> int:
+    def reduce(self, f: Callable[..., Any], initial_state: int = 0) -> int:
         """
         Reduce–process structure elements
         """
@@ -360,7 +360,7 @@ class BTree(Generic[T]):
     Data structure should be an iterator in Python style
     """
 
-    def __iter__(self) -> Iterator:
+    def __iter__(self) -> Iterator[Any]:
         if self.root is None:
             self.deep = 0
             return self
@@ -376,7 +376,7 @@ class BTree(Generic[T]):
     when no more elements are available.
     """
 
-    def __next__(self) -> Iterator[Any]:
+    def __next__(self) -> Any:
         # signals "the end"
         if self.deep == 0:
             raise StopIteration
