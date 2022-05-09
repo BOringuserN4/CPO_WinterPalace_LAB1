@@ -25,11 +25,11 @@ class BTNode(object):
 class Value(object):
     value = 0
 
-    def get_vlaue(self) -> T1:
+    def get_vlaue(self) -> T:
         """get value"""
         return Value.value
 
-    def set_value(self, item: T1) -> T1:
+    def set_value(self, item: T1) -> T:
         """set value"""
         Value.value = item
         return Value.value
@@ -42,7 +42,7 @@ class BTree(object):
         :param root: root
         """
         self.root = root
-        self.iter_queue = []
+        self.iter_queue: List[T1] = []
         self.deep = 0
 
     """
@@ -79,7 +79,7 @@ class BTree(object):
     tree into a list type and then modify the value in the list.
     """
 
-    def set_element(self, pos: int, value: T1) -> T:
+    def set_element(self, pos: int, value: T1) -> Union['BTree', bool]:
         """
         Set an element with specific index / key
         """
