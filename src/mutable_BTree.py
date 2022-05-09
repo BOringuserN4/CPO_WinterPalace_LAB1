@@ -42,7 +42,7 @@ class BTree(Generic[T]):
         :param root: root
         """
         self.root = root
-        self.iter_queue = []  # type: List[Union[str, int, float]]
+        self.iter_queue = []  # type: List[int]
         self.deep = 0
 
     """
