@@ -5,7 +5,7 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None,
+    def __init__(self, value=None,  # type: ignore
                  left=None, right=None) -> None:  # type: ignore
         """
         init the BTNode
@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: T1) -> Union['BTNode', None]:  # type: ignore
+    def parent(self, value: T1) -> Any:
         """
         Parent method is used in reduce function
         """
@@ -305,7 +305,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:
+    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:  # type: ignore
         """
         Build a map data structure for the tree
         """
@@ -381,7 +381,7 @@ class BTree(Generic[T]):
     when no more elements are available.
     """
 
-    def __next__(self) -> T1:
+    def __next__(self) -> Any:
         """
         Return the next element of BTree or StopIteration
         """
