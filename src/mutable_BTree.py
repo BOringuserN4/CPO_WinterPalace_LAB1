@@ -4,7 +4,7 @@ T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
-class BTNode(Generic[T]):
+class BTNode(object):
     def __init__(self, value=None, left=None, right=None) -> None:
         """
         init the BTNode
@@ -22,7 +22,7 @@ class BTNode(Generic[T]):
 
 
 # This class is used to provide static values
-class Value(Generic[T]):
+class Value(object):
     value = 0
 
     def get_vlaue(self) -> T1:
@@ -35,7 +35,7 @@ class Value(Generic[T]):
         return Value.value
 
 
-class BTree(Generic[T]):
+class BTree(object):
     def __init__(self, root=None) -> None:
         """
         init the BTree
@@ -98,7 +98,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: T1) -> Union[List, None]:
+    def parent(self, value: T1) -> Union['BTNode', None]:
         """
         Parent method is used in reduce function
         """
