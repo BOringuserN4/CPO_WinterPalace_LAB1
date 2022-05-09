@@ -25,11 +25,11 @@ class BTNode(Generic[T]):
 class Value(Generic[T]):
     value = 0
 
-    def get_vlaue(self) -> Union[str, int, float]:
+    def get_vlaue(self) -> int:
         """get value"""
         return Value.value
 
-    def set_value(self, item: Any) -> Union[str, int, float]:
+    def set_value(self, item: int) -> int:
         """set value"""
         Value.value = item
         return Value.value
