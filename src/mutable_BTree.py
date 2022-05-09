@@ -1,5 +1,11 @@
-class BTNode(object):
-    def __init__(self, value=None, left=None, right=None):
+from typing import TypeVar, Any, Callable, List, Generic, Iterator, Union
+
+T = TypeVar('T')
+T1 = TypeVar('T1', str, int, float)
+
+
+class BTNode(Generic[T]):
+    def __init__(self, value=None, left=None, right=None) -> None:
         """
         init the BTNode
         :param value: None
@@ -10,27 +16,27 @@ class BTNode(object):
         self.left = left
         self.right = right
 
-    def get_value(self):
+    def get_value(self) -> T1:
         """return value"""
         return self.value
 
 
 # This class is used to provide static values
-class Value(object):
+class Value(Generic[T]):
     value = 0
 
-    def get_vlaue(self):
+    def get_vlaue(self) -> T1:
         """get value"""
         return Value.value
 
-    def set_value(self, item):
+    def set_value(self, item: T1) -> T1:
         """set value"""
         Value.value = item
         return Value.value
 
 
-class BTree(object):
-    def __init__(self, root=None):
+class BTree(Generic[T]):
+    def __init__(self, root=None) -> None:
         """
         init the BTree
         :param root: root
@@ -43,7 +49,7 @@ class BTree(object):
     Add a new element
     """
 
-    def add(self, value):
+    def add(self, value: T1) -> None:
         """
         add node to tree
         """
@@ -73,7 +79,7 @@ class BTree(object):
     tree into a list type and then modify the value in the list.
     """
 
-    def set_element(self, pos, value):
+    def set_element(self, pos: int, value: T1) -> T:
         """
         Set an element with specific index / key
         """
@@ -92,7 +98,7 @@ class BTree(object):
     some of methods using the same idea
     """
 
-    def parent(self, value):
+    def parent(self, value: T1) -> Union[List, None]:
         """
         Parent method is used in reduce function
         """
@@ -120,7 +126,7 @@ class BTree(object):
     - value for sets value
     """
 
-    def remove(self, value):
+    def remove(self, value: T1) -> bool:
         """
         Remove an element
         """
@@ -188,7 +194,7 @@ class BTree(object):
     - reverse (lst.reverse() (if applicable)
     """
 
-    def size(self):
+    def size(self) -> int:
         """
         Return the size of tree
         """
@@ -208,7 +214,7 @@ class BTree(object):
             return 1 + left_sum + right_sum
 
     # consistent with parent function idea
-    def is_member(self, value) -> bool:
+    def is_member(self, value: T1) -> bool:
         """
         Determine whether it is a member node of the tree
         """
@@ -235,7 +241,7 @@ class BTree(object):
     - to_list (lst.to_list())
     """
 
-    def from_list(self, lst):
+    def from_list(self, lst: List) -> 'BTree':
         """
         Conversion from/to built-in list
         """
@@ -244,7 +250,7 @@ class BTree(object):
         return self
 
     # consistent with size function idea
-    def to_list(self):
+    def to_list(self) -> List:
         """
         Convert tree to list
         """
@@ -266,7 +272,7 @@ class BTree(object):
     Filter data structure by specific predicate
     """
 
-    def filter(self) -> list:
+    def filter(self) -> List:
         """
         Filter data structure by specific predicate
         """
@@ -297,7 +303,7 @@ class BTree(object):
         called from left to right.
     """
 
-    def map(self, f):
+    def map(self, f: Callable) -> Union['BTree', None]:
         """
         Build a map data structure for the tree
         """
@@ -335,7 +341,7 @@ class BTree(object):
     build a return value by specific functions
     """
 
-    def reduce(self, f, initial_state=0):
+    def reduce(self, f: Callable, initial_state=0) -> int:
         """
         Reduce–process structure elements
         """
@@ -354,7 +360,7 @@ class BTree(object):
     Data structure should be an iterator in Python style
     """
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator:
         if self.root is None:
             self.deep = 0
             return self
@@ -370,7 +376,7 @@ class BTree(object):
     when no more elements are available.
     """
 
-    def __next__(self):
+    def __next__(self) -> Iterator[Any]:
         # signals "the end"
         if self.deep == 0:
             raise StopIteration
@@ -395,7 +401,7 @@ class BTree(object):
     implement empty and concat methods
     """
 
-    def empty(self):
+    def empty(self) -> None:
         """
         Return a empty node
         """
@@ -403,7 +409,7 @@ class BTree(object):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1, bt2):
+    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> 'BTNode':
         """
         Sum of two bt trees
         """
