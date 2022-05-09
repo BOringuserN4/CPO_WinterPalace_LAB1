@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# mypy: ignore-errors
 """
 For testing, you should use two approaches:
     • unit tests (for all features)
@@ -81,6 +84,7 @@ class TestMutableBTree(unittest.TestCase):
     def test_map(self):
         def f(x):
             return abs(x)
+
         '''
         What happens, if you pass `abs` as argument for `map` function?
         Can you provide data, where result is not determined?
