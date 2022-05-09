@@ -3,8 +3,10 @@ from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
 T = TypeVar('T')
 T1 = TypeVar('T1', bound=Union[str, int, float])
 
+
 class BTNode(Generic[T]):
-    def __init__(self, value: T1 = None, left: 'BTNode' = None, right: 'BTNode' = None) -> None:
+    def __init__(self, value: T1 = None,
+                 left: 'BTNode' = None, right: 'BTNode' = None) -> None:
         """
         init the BTNode
         :param value: None
