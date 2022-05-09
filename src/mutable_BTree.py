@@ -5,7 +5,7 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None) -> None:
+    def __init__(self, value: Union[T1, None], left: Union['BTNode', None], right: Union['BTNode', None]) -> None:
         """
         init the BTNode
         :param value: None
@@ -16,7 +16,7 @@ class BTNode(Generic[T]):
         self.left = left
         self.right = right
 
-    def get_value(self) -> T1:
+    def get_value(self) -> Any:
         """return value"""
         return self.value
 
@@ -36,7 +36,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root=None) -> None:
+    def __init__(self, root:  Union['BTNode', None]) -> None:
         """
         init the BTree
         :param root: root
