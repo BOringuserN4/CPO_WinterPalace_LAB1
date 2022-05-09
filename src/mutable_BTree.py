@@ -1,7 +1,7 @@
 from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
 
 T = TypeVar('T')
-T1 = TypeVar('T1', str, int, float)
+T1 = TypeVar('T1', bound=Union[str, int, float])
 
 
 class BTNode(Generic[T]):
@@ -29,7 +29,7 @@ class Value(Generic[T]):
         """get value"""
         return Value.value
 
-    def set_value(self, item: T) -> Union[str, int, float]:
+    def set_value(self, item: T1) -> Union[str, int, float]:
         """set value"""
         Value.value = item
         return Value.value
