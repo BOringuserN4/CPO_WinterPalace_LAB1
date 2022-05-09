@@ -303,7 +303,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:  # type: ignore
+    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:
         """
         Build a map data structure for the tree
         """
