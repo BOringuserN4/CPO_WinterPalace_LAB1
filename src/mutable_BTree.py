@@ -3,9 +3,8 @@ from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
 T = TypeVar('T')
 T1 = TypeVar('T1', bound=Union[str, int, float])
 
-
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None) -> None:
+    def __init__(self, value: T1 = None, left: 'BTNode' = None, right: 'BTNode' = None) -> None:
         """
         init the BTNode
         :param value: None
@@ -23,7 +22,7 @@ class BTNode(Generic[T]):
 
 # This class is used to provide static values
 class Value(Generic[T]):
-    value = 0
+    value: int = 0
 
     def get_vlaue(self) -> int:
         """get value"""
@@ -36,7 +35,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root=None) -> None:
+    def __init__(self, root: 'BTNode' = None) -> None:
         """
         init the BTree
         :param root: root
@@ -341,7 +340,7 @@ class BTree(Generic[T]):
     build a return value by specific functions
     """
 
-    def reduce(self, f: Callable, initial_state=0) -> int:
+    def reduce(self, f: Callable, initial_state: int = 0) -> int:
         """
         Reduce–process structure elements
         """
