@@ -5,7 +5,7 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None) -> None:  # type: ignore
+    def __init__(self, value=None, left=None, right=None) -> None:
         """
         init the BTNode
         :param value: None
@@ -79,7 +79,7 @@ class BTree(Generic[T]):
     tree into a list type and then modify the value in the list.
     """
 
-    def set_element(self, pos: int, value: T1) -> Union['BTree', bool]:  # type: ignore
+    def set_element(self, pos: int, value: T1) -> Union['BTree', bool]:
         """
         Set an element with specific index / key
         """
@@ -361,6 +361,9 @@ class BTree(Generic[T]):
     """
 
     def __iter__(self) -> Iterator[Any]:
+        """
+        Return a iterator
+        """
         if self.root is None:
             self.deep = 0
             return self
@@ -377,6 +380,9 @@ class BTree(Generic[T]):
     """
 
     def __next__(self) -> Any:
+        """
+        Return the next element of BTree or StopIteration
+        """
         # signals "the end"
         if self.deep == 0:
             raise StopIteration
