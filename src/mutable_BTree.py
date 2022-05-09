@@ -1,7 +1,7 @@
 from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
 
 T = TypeVar('T')
-T1 = TypeVar('T1', bound=Union[str, int, float])
+T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
