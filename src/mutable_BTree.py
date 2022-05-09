@@ -5,8 +5,8 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None,  # type: ignore
-                 left=None, right=None) -> None:  # type: ignore
+    def __init__(self,
+                 value=None, left=None, right=None) -> None:  # type: ignore
         """
         init the BTNode
         :param value: None
@@ -305,7 +305,8 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:  # type: ignore
+    def map(self,
+            f: Callable[..., Any]) -> Union['BTree', None]:  # type: ignore
         """
         Build a map data structure for the tree
         """
