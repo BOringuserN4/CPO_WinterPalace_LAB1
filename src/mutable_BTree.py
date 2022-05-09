@@ -42,7 +42,7 @@ class BTree(Generic[T]):
         :param root: root
         """
         self.root = root
-        self.iter_queue: List[T] = []
+        self.iter_queue = []  # type: List[T1]
         self.deep = 0
 
     """
@@ -315,7 +315,7 @@ class BTree(Generic[T]):
             tmp = queue.pop(0)
             # It's an undefined behavior here, if it happened in c or c++,
             # different compilers will be very different.
-            val = Value()
+            val = Value()  # type: ignore
             val.set_value(tmp.value)
 
             def h(x):
@@ -418,7 +418,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BT tree
-        new_root = BTNode(bt1.value + bt2.value)
+        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
