@@ -29,7 +29,7 @@ class Value(Generic[T]):
         """get value"""
         return Value.value
 
-    def set_value(self, item: T1) -> Union[str, int, float]:
+    def set_value(self, item: T) -> Union[str, int, float]:
         """set value"""
         Value.value = item
         return Value.value
