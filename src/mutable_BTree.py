@@ -1,4 +1,4 @@
-from typing import TypeVar, Any, Callable, List, Generic, Iterator, Union
+from typing import TypeVar, Any, Callable, List, Iterator, Union
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
