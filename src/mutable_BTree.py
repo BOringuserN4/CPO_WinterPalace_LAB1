@@ -5,7 +5,7 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None) -> None:
+    def __init__(self, value: T = None, left: T = None, right: T = None) -> None:
         """
         init the BTNode
         :param value: None
@@ -36,7 +36,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root=None) -> None:
+    def __init__(self, root: T = None) -> None:
         """
         init the BTree
         :param root: root
@@ -79,7 +79,7 @@ class BTree(Generic[T]):
     tree into a list type and then modify the value in the list.
     """
 
-    def set_element(self, pos: int, value: T1) -> Union['BTree', bool]:
+    def set_element(self, pos: int, value: T1) -> Union[T, bool]:
         """
         Set an element with specific index / key
         """
@@ -241,7 +241,7 @@ class BTree(Generic[T]):
     - to_list (lst.to_list())
     """
 
-    def from_list(self, lst: List[Any]) -> 'BTree':
+    def from_list(self, lst: List[Any]) -> T:
         """
         Conversion from/to built-in list
         """
@@ -303,7 +303,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> Union['BTree', None]:
+    def map(self, f: Callable[..., Any]) -> Union[T, None]:
         """
         Build a map data structure for the tree
         """
@@ -423,7 +423,7 @@ class BTree(Generic[T]):
             return bt2
         if not bt2:
             return bt1
-        # return the new BT tree
+        # return the new BTree
         new_root = BTNode(bt1.value + bt2.value)  # type: ignore
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
