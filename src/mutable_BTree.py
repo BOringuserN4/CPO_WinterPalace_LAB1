@@ -1,4 +1,4 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic
+from typing import TypeVar, Any, Callable, List, Iterator, Generic, Union
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: T1) -> Any:
+    def parent(self, value: T1) -> Union[BTNode, None]:
         """
         Parent method is used in reduce function
         """
