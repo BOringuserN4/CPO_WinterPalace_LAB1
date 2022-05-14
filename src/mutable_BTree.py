@@ -5,7 +5,7 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value: Any):
+    def __init__(self, value: Any, left: Any, right: Any):
         """
         init the BTNode
         :param value: None
@@ -13,8 +13,8 @@ class BTNode(Generic[T]):
         :param right: None
         """
         self.value = value
-        self.left = None
-        self.right = None
+        self.left = left
+        self.right = right
 
     def get_value(self) -> Any:
         """return value"""
