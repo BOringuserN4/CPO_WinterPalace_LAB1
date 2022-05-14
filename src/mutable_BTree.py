@@ -105,7 +105,7 @@ class BTree(Generic[T]):
         Parent method is used in reduce function
         """
         if self.root.value == value:
-            return self
+            return None
         """Use the stack to iterate all nodes"""
         queue = list()
         queue.append(self.root)
@@ -121,7 +121,7 @@ class BTree(Generic[T]):
                 queue.append(tmp.left)
             if tmp.right is not None:
                 queue.append(tmp.right)
-        return self
+        return None
 
     """
     Remove an element by
