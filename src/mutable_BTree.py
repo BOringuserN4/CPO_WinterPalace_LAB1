@@ -6,7 +6,7 @@ T1 = TypeVar('T1', str, int, float)
 
 class BTNode(Generic[T]):
     def __init__(self, value: Any = None,
-                 left: Any = None, right: Any = None) -> None:
+                 left: 'BTNode' = None, right: 'BTNode' = None) -> None:
         """
         init the BTNode
         :param value: None
@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: Any) -> Any:
+    def parent(self, value: T1) -> Any:
         """
         Parent method is used in reduce function
         """
