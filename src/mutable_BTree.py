@@ -1,12 +1,12 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic
+from typing import TypeVar, Any, Callable, List, Iterator, Generic, Optional
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value: Any = None,
-                 left: 'BTNode' = None, right: 'BTNode' = None):
+    def __init__(self, value: Optional[Any],
+                 left: Optional['BTNode'], right: Optional['BTNode']):
         """
         init the BTNode
         :param value: None
@@ -37,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: BTNode = None):
+    def __init__(self, root: Optional[BTNode]):
         """
         init the BTree
         :param root: root
