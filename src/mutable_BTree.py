@@ -105,7 +105,7 @@ class BTree(Generic[T]):
         Parent method is used in reduce function
         """
         if self.root.value == value:
-            return None
+            return self
         """Use the stack to iterate all nodes"""
         queue = list()
         queue.append(self.root)
@@ -121,7 +121,7 @@ class BTree(Generic[T]):
                 queue.append(tmp.left)
             if tmp.right is not None:
                 queue.append(tmp.right)
-        return None
+        return self
 
     """
     Remove an element by
@@ -417,7 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: BTNode[Any], bt2: BTNode[Any]) -> Any:
+    def concat(self, bt1: Any, bt2: Any) -> Any:
         """
         Sum of two bt trees
         """
@@ -426,7 +426,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BTree
-        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode[Any]
+        new_root = BTNode(bt1.value + bt2.value)
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
