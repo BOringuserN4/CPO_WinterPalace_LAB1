@@ -317,7 +317,7 @@ class BTree(Generic[T]):
             tmp = queue.pop(0)
             # It's an undefined behavior here, if it happened in c or c++,
             # different compilers will be very different.
-            val = Value()  # type: ignore
+            val = Value()  # type: Any
             val.set_value(tmp.value)
 
             def h(x: int) -> int:
