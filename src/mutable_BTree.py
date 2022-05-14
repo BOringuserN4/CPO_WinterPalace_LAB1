@@ -1,4 +1,4 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic
+from typing import TypeVar, Any, Callable, List, Iterator, Generic, Optional
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
@@ -6,7 +6,7 @@ T1 = TypeVar('T1', str, int, float)
 
 class BTNode(Generic[T]):
     def __init__(self, value: Any = None,
-                 left: Any = None, right: Any = None):
+                 left: Optional[Any] = None, right: Optional[Any] = None):
         """
         init the BTNode
         :param value: None
