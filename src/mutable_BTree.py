@@ -37,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: T = None) -> None:
+    def __init__(self, root: Any = None) -> None:
         """
         init the BTree
         :param root: root
@@ -81,7 +81,7 @@ class BTree(Generic[T]):
     """
 
     def set_element(self, pos: int,
-                    value: T1) -> T:
+                    value: T1) -> Any:
         """
         Set an element with specific index / key
         """
@@ -305,7 +305,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> T:
+    def map(self, f: Callable[..., Any]) -> Any:
         """
         Build a map data structure for the tree
         """
@@ -417,7 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> T:
+    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> BTNode[Any]:
         """
         Sum of two bt trees
         """
@@ -426,7 +426,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BTree
-        new_root = BTNode(bt1.value + bt2.value)  # type: ignore
+        new_root = BTNode(bt1.value + bt2.value)  # type: Any
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
