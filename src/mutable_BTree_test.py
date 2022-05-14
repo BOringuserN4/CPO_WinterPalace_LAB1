@@ -232,3 +232,7 @@ class TestMutableBTree(unittest.TestCase):
         btree2 = BTree()
         iteration = iter(btree2)
         self.assertRaises(StopIteration, lambda: next(iteration))
+
+
+if __name__ == '__main__':
+    unittest.main()
