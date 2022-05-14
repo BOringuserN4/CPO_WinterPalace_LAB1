@@ -36,8 +36,8 @@ class Value(Generic[T]):
         return Value.value
 
 
-class BTree(Generic[T]):  # type: ignore
-    def __init__(self, root: Any = None):
+class BTree(Generic[T]):
+    def __init__(self, root: Any = None):  # type: ignore
         """
         init the BTree
         :param root: root
