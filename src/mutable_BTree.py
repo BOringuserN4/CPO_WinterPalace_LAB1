@@ -6,7 +6,7 @@ T1 = TypeVar('T1', str, int, float)
 
 class BTNode(Generic[T]):
     def __init__(self, value: Any = None,
-                 left: 'BTNode' = None, right: 'BTNode' = None # type: ignore
+                 left: 'BTNode' = None, right: 'BTNode' = None  # type: ignore
                  ) -> None:
         """
         init the BTNode
