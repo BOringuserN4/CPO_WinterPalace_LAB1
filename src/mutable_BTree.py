@@ -4,7 +4,7 @@ T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
-class BTNode(Generic[T]):
+class BTNode:
     def __init__(self, value: Any = None,
                  left: 'BTNode' = None, right: 'BTNode' = None):
         """
@@ -23,7 +23,7 @@ class BTNode(Generic[T]):
 
 
 # This class is used to provide static values
-class Value(Generic[T]):
+class Value:
     value: int = 0
 
     def get_vlaue(self) -> int:
@@ -36,13 +36,13 @@ class Value(Generic[T]):
         return Value.value
 
 
-class BTree(Generic[T]):
-    def __init__(self, root: BTNode = None):
+class BTree:
+    def __init__(self):
         """
         init the BTree
         :param root: root
         """
-        self.root = root
+        self.root = None
         self.iter_queue = []  # type: List[Any]
         self.deep = 0
 
@@ -417,8 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: BTNode[Any],
-               bt2: BTNode[Any]) -> BTNode[Any]:
+    def concat(self, bt1: BTNode, bt2: BTNode) -> BTNode:
         """
         Sum of two bt trees
         """
@@ -427,7 +426,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BTree
-        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode[Any]
+        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
