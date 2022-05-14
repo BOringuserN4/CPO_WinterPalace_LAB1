@@ -1,12 +1,11 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic
+from typing import TypeVar, Any, Callable, List, Iterator, Generic, Union
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
-class BTNode:
-    def __init__(self, value: Any = None,
-                 left: 'BTNode' = None, right: 'BTNode' = None):
+class BTNode(Generic[T]):
+    def __init__(self, value: Any = None):
         """
         init the BTNode
         :param value: None
@@ -14,8 +13,8 @@ class BTNode:
         :param right: None
         """
         self.value = value
-        self.left = left
-        self.right = right
+        self.left = None
+        self.right = None
 
     def get_value(self) -> Any:
         """return value"""
@@ -23,7 +22,7 @@ class BTNode:
 
 
 # This class is used to provide static values
-class Value:
+class Value(Generic[T]):
     value: int = 0
 
     def get_vlaue(self) -> int:
@@ -36,13 +35,13 @@ class Value:
         return Value.value
 
 
-class BTree:
-    def __init__(self):
+class BTree(Generic[T]):
+    def __init__(self, root: BTNode):
         """
         init the BTree
         :param root: root
         """
-        self.root = None
+        self.root = root
         self.iter_queue = []  # type: List[Any]
         self.deep = 0
 
