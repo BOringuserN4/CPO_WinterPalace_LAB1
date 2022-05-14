@@ -417,7 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: Any, bt2: Any) -> Any:
+    def concat(self, bt1: BTNode, bt2: BTNode) -> BTNode:
         """
         Sum of two bt trees
         """
