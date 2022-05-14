@@ -318,7 +318,7 @@ class BTree(Generic[T]):
             tmp = queue.pop(0)
             # It's an undefined behavior here, if it happened in c or c++,
             # different compilers will be very different.
-            val = Value()  # type: ignore
+            val = Value()  # type: Any
             val.set_value(tmp.value)
 
             def h(x: int) -> int:
@@ -418,7 +418,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: Any, bt2: Any) -> Any:
+    def concat(self, bt1: BTNode[Any], bt2: BTNode[Any]) -> BTNode[Any]:
         """
         Sum of two bt trees
         """
