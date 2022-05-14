@@ -1,4 +1,4 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic
+from typing import TypeVar, Any, Callable, List, Union, Iterator, Generic
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: T1) -> Any:
+    def parent(self, value: T1) -> Union[BTNode, None]:
         """
         Parent method is used in reduce function
         """
@@ -417,7 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> BTNode[Any]:
+    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> Any:
         """
         Sum of two bt trees
         """
@@ -426,7 +426,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BTree
-        new_root = BTNode(bt1.value + bt2.value)  # type: Any
+        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
