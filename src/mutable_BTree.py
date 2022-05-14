@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: Any) -> Any:
+    def parent(self, value: Any) -> Any:  # type: ignore
         """
         Parent method is used in reduce function
         """
