@@ -81,7 +81,7 @@ class BTree(Generic[T]):
     """
 
     def set_element(self, pos: int,
-                    value: T1) -> Union['BTree', bool]:
+                    value: T1) -> bool:
         """
         Set an element with specific index / key
         """
@@ -93,7 +93,7 @@ class BTree(Generic[T]):
             tmp_list[pos] = value
             self.root = None
             self.from_list(tmp_list)
-            return self
+            return True
 
     """
     Parent method is used in reduce function and
@@ -243,7 +243,7 @@ class BTree(Generic[T]):
     - to_list (lst.to_list())
     """
 
-    def from_list(self, lst: List[Any]) -> 'BTree':
+    def from_list(self, lst: List[Any]) -> Any:
         """
         Conversion from/to built-in list
         """
@@ -306,7 +306,7 @@ class BTree(Generic[T]):
     """
 
     def map(self,
-            f: Callable[..., Any]) -> Union['BTree', None]:
+            f: Callable[..., Any]) -> Any:
         """
         Build a map data structure for the tree
         """
@@ -418,7 +418,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> 'BTNode':  # type: ignore
+    def concat(self, bt1: Any, bt2: Any) -> Any:
         """
         Sum of two bt trees
         """
@@ -427,7 +427,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BTree
-        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode
+        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode[Any]
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
