@@ -37,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: BTNode = None) -> None:
+    def __init__(self, root: BTNode = None):
         """
         init the BTree
         :param root: root
@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: Any) -> Any:  # type: ignore
+    def parent(self, value: Any) -> Any:
         """
         Parent method is used in reduce function
         """
