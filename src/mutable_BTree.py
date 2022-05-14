@@ -320,12 +320,12 @@ class BTree(Generic[T]):
             val = Value()  # type: ignore
             val.set_value(tmp.value)
 
-            def h(x):  # type: ignore
+            def h(x: int) -> int:
                 x += 1
                 val.set_value(x)
                 return x
 
-            def g(x):  # type: ignore
+            def g(x: int) -> int:
                 x *= 2
                 val.set_value(x)
                 return x
@@ -426,7 +426,7 @@ class BTree(Generic[T]):
         if not bt2:
             return bt1
         # return the new BTree
-        new_root = BTNode(bt1.value + bt2.value)
+        new_root = BTNode(bt1.value + bt2.value)  # type: BTNode
         new_root.left = self.concat(bt1.left, bt2.left)
         new_root.right = self.concat(bt1.right, bt2.right)
         return new_root
