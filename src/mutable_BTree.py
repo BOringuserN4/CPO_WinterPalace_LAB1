@@ -1,12 +1,12 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
+from typing import TypeVar, Any, Callable, List, Iterator, Generic
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None  # type: ignore
-                 ) -> None:
+    def __init__(self, value: Any = None,
+                 left: Any = None, right: Any = None) -> None:
         """
         init the BTNode
         :param value: None
@@ -37,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root=None) -> None:  # type: ignore
+    def __init__(self, root: T = None) -> None:
         """
         init the BTree
         :param root: root
@@ -81,7 +81,7 @@ class BTree(Generic[T]):
     """
 
     def set_element(self, pos: int,
-                    value: T1) -> Union['BTree', bool]:  # type: ignore
+                    value: T1) -> T:
         """
         Set an element with specific index / key
         """
@@ -243,7 +243,7 @@ class BTree(Generic[T]):
     - to_list (lst.to_list())
     """
 
-    def from_list(self, lst: List[Any]) -> 'BTree':  # type: ignore
+    def from_list(self, lst: List[Any]) -> 'BTree':
         """
         Conversion from/to built-in list
         """
@@ -305,8 +305,7 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self,
-            f: Callable[..., Any]) -> Union['BTree', None]:  # type: ignore
+    def map(self, f: Callable[..., Any]) -> T:
         """
         Build a map data structure for the tree
         """
@@ -418,7 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> 'BTNode':  # type: ignore
+    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> T:
         """
         Sum of two bt trees
         """
