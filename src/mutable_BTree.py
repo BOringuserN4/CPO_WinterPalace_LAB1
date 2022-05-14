@@ -5,7 +5,8 @@ T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value=None, left=None, right=None  # type: ignore
+    def __init__(self, value: Any = None,
+                 left: 'BTNode' = None, right: 'BTNode' = None # type: ignore
                  ) -> None:
         """
         init the BTNode
@@ -37,7 +38,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: BTNode[Any] = None) -> None:
+    def __init__(self, root: BTNode = None) -> None:  # type: ignore
         """
         init the BTree
         :param root: root
