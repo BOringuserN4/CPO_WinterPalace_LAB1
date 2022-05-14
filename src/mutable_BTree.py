@@ -1,11 +1,12 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic, Union
+from typing import TypeVar, Any, Callable, List, Iterator, Generic
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value: Any = None):
+    def __init__(self, value: Any = None,
+                 left: 'BTNode' = None, right: 'BTNode' = None):
         """
         init the BTNode
         :param value: None
@@ -13,8 +14,8 @@ class BTNode(Generic[T]):
         :param right: None
         """
         self.value = value
-        self.left = None
-        self.right = None
+        self.left = left
+        self.right = right
 
     def get_value(self) -> Any:
         """return value"""
@@ -36,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: BTNode):
+    def __init__(self, root: BTNode = None):
         """
         init the BTree
         :param root: root
@@ -416,7 +417,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: BTNode, bt2: BTNode) -> BTNode:
+    def concat(self, bt1: Any, bt2: Any) -> Any:
         """
         Sum of two bt trees
         """
