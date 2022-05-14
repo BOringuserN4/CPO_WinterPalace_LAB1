@@ -1,4 +1,4 @@
-from typing import TypeVar, Any, Callable, List, Iterator, Generic
+from typing import TypeVar, Any, Callable, List, Iterator, Union, Generic
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
@@ -37,7 +37,7 @@ class Value(Generic[T]):
 
 
 class BTree(Generic[T]):
-    def __init__(self, root: Any = None):  # type: ignore
+    def __init__(self, root=None) -> None:  # type: ignore
         """
         init the BTree
         :param root: root
@@ -81,7 +81,7 @@ class BTree(Generic[T]):
     """
 
     def set_element(self, pos: int,
-                    value: T1) -> Any:
+                    value: T1) -> Union['BTree', bool]:
         """
         Set an element with specific index / key
         """
@@ -305,7 +305,8 @@ class BTree(Generic[T]):
         called from left to right.
     """
 
-    def map(self, f: Callable[..., Any]) -> Any:
+    def map(self,
+            f: Callable[..., Any]) -> Union['BTree', None]:
         """
         Build a map data structure for the tree
         """
@@ -317,7 +318,7 @@ class BTree(Generic[T]):
             tmp = queue.pop(0)
             # It's an undefined behavior here, if it happened in c or c++,
             # different compilers will be very different.
-            val = Value()  # type: Any
+            val = Value()  # type: ignore
             val.set_value(tmp.value)
 
             def h(x: int) -> int:
@@ -417,7 +418,7 @@ class BTree(Generic[T]):
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
-    def concat(self, bt1: Any, bt2: Any) -> Any:
+    def concat(self, bt1: 'BTNode', bt2: 'BTNode') -> 'BTNode':  # type: ignore
         """
         Sum of two bt trees
         """
