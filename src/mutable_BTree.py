@@ -100,7 +100,7 @@ class BTree(Generic[T]):
     some of methods using the same idea
     """
 
-    def parent(self, value: Any) -> Union[BTNode, None]:
+    def parent(self, value: Any) -> BTNode:
         """
         Parent method is used in reduce function
         """
