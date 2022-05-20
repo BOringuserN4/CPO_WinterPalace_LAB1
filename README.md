@@ -140,6 +140,15 @@ Date: 2022/05/09
 
 1.Add type hints.
 
+---
+
+The first lab of CPO
+HDU-ID: 212320024
+Name: Chen Chongzhong
+Date: 2022/05/14
+
+1.Fix the type hints.
+
 ## Design notes
 
 We implement the Binary Tree's mutable algorithms and data structure Implementation.
