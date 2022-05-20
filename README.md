@@ -36,34 +36,71 @@ Group members information as follows.
 ## Changelog
 
 The first lab of CPO
-HDU-ID: 212320025
-Name: Zuo Yuexin
-Date: 2022/04/12
+HDU-ID: 212320024
+Name: Chen Chongzhong
+Date: 2022/05/14
 
-1.Completed the general part of the lab. Such as add,remove,size and so on.
-2.Iteration and merging still have some problems to be solved.
-
----
-
-The first lab of CPO
-HDU-ID: 212320025
-Name: Zuo Yuexin
-Date: 2022/04/13
-
-1.Fixed some problems and finished the set_element method.
-
-2.Still have some problems about empty method.
+1.Fixed the type hints.
 
 ---
 
 The first lab of CPO
 HDU-ID: 212320024
 Name: Chen Chongzhong
-Date: 2022/04/14
+Date: 2022/05/09
 
-1.Fixed one function's problem.
+1.Add type hints.
 
-2.Completed the unittest and PBT tests in the Design Notes section.
+---
+
+---
+
+The first lab of CPO
+HDU-ID: 212320025
+Name: Zuo Yuexin
+Date: 2022/05/06
+
+1.Add docstrings for all functions.
+
+---
+
+The first lab of CPO
+
+HDU-ID: 212320024
+
+Name: Chen Chongzhong
+
+Date: 2022/04/25
+
+1.Add much more assertions for checking behaviour in function `test_iter`.
+
+---
+
+The first lab of CPO
+HDU-ID: 212320025
+Name: Zuo Yuexin
+Date: 2022/04/25
+
+1.Same as above test, I passed the absolute value function to the map() and
+tested a set of data to be its inverse.
+In the function, I wrote to construct the tree, I did not judge how
+to construct a tree based on the size of the value passed in.
+So the result is definitely certain. If it means Can you provide data, whether
+result is not determined?
+When changed whether to where, i can't understand what that means.
+
+2.Update the map function.
+
+---
+
+The first lab of CPO
+HDU-ID: 212320024
+Name: Chen Chongzhong
+Date: 2022/04/18
+
+1.Fixed iterator tests in `mutable_test.py`.
+
+2.Fixed test function `test_monoid_properties` about monoid property.
 
 ---
 
@@ -87,67 +124,32 @@ An example is shown in `mutable_test.py`.
 The first lab of CPO
 HDU-ID: 212320024
 Name: Chen Chongzhong
-Date: 2022/04/18
+Date: 2022/04/14
 
-1.Fixed iterator tests in `mutable_test.py`.
+1.Fixed one function's problem.
 
-2.Fixed test function `test_monoid_properties` about monoid property.
-
----
-
-The first lab of CPO
-HDU-ID: 212320025
-Name: Zuo Yuexin
-Date: 2022/04/25
-
-1.Same as above test, I passed the absolute value function to the map() and
-tested a set of data to be its inverse.
-In the function, I wrote to construct the tree, I did not judge how
-to construct a tree based on the size of the value passed in.
-So the result is definitely certain. If it means Can you provide data, whether
-result is not determined?
-When changed whether to where, i can't understand what that means.
-
-2.Update the map function.
-
----
-
-The first lab of CPO
-
-HDU-ID: 212320024
-
-Name: Chen Chongzhong
-
-Date: 2022/04/25
-
-1.Add much more assertions for checking behaviour in function `test_iter`.
+2.Completed the unittest and PBT tests in the Design Notes section.
 
 ---
 
 The first lab of CPO
 HDU-ID: 212320025
 Name: Zuo Yuexin
-Date: 2022/05/06
+Date: 2022/04/13
 
-1.Add docstrings for all functions.
+1.Fixed some problems and finished the set_element method.
 
----
-
-The first lab of CPO
-HDU-ID: 212320024
-Name: Chen Chongzhong
-Date: 2022/05/09
-
-1.Add type hints.
+2.Still have some problems about empty method.
 
 ---
 
 The first lab of CPO
-HDU-ID: 212320024
-Name: Chen Chongzhong
-Date: 2022/05/14
+HDU-ID: 212320025
+Name: Zuo Yuexin
+Date: 2022/04/12
 
-1.Fix the type hints.
+1.Completed the general part of the lab. Such as add,remove,size and so on.
+2.Iteration and merging still have some problems to be solved.
 
 ## Design notes
 
