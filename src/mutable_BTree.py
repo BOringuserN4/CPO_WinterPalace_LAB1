@@ -1,5 +1,5 @@
 from typing import TypeVar, Any, Union, Callable, List,\
-    Iterator, Generic, Optional
+    Iterator, Generic
 
 T = TypeVar('T')
 T1 = TypeVar('T1', str, int, float)
