@@ -197,9 +197,9 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         btree4: BTree[T] = BTree()
         btree5: BTree[T] = BTree()
         self.assertEqual(BTree(btree5.
-                               concat(btree1.root, BTNode())).to_list(),
+                               concat(btree1.root, btree4.empty())).to_list(),
                          BTree(btree5.
-                               concat(BTNode(), btree1.root)).to_list()
+                               concat(btree4.empty(), btree1.root)).to_list()
                          )
 
     def test_iter(self) -> None:
