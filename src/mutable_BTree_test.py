@@ -153,14 +153,14 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         self.assertEqual(BTree(btree_root).to_list(), [5, 2, 8])
 
     @given(st.lists(st.integers()))
-    def test_from_list_to_list_equality(self, a) -> None:
+    def test_from_list_to_list_equality(self, a: List[Any]) -> None:
         btree: BTree[T] = BTree()
         btree.from_list(a)
         b = btree.to_list()
         self.assertCountEqual(a, b)
 
     @given(st.lists(st.integers()))
-    def test_python_len_and_list_size_equality(self, a) -> None:
+    def test_python_len_and_list_size_equality(self, a: List[Any]) -> None:
         btree: BTree[T] = BTree()
         btree.from_list(a)
         self.assertEqual(btree.size(), len(a))
@@ -168,7 +168,8 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
     @given(a=st.lists(st.integers()),
            b=st.lists(st.integers()),
            c=st.lists(st.integers()))
-    def test_monoid_properties(self, a, b, c) -> None:
+    def test_monoid_properties(self, a: List[Any],
+                               b: List[Any], c: List[Any]) -> None:
         """
         Associativity
         For all a, b and c in S,
