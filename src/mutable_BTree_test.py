@@ -116,9 +116,9 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         self.assertEqual(btree.reduce(lambda st, e: st + e, 0), 0)
 
         # sum of btree
-        btree: BTree[T] = BTree()
-        btree.from_list([1, 2, 3])
-        self.assertEqual(btree.reduce(lambda st, e: st + e, 0), 6)
+        btree2: BTree[T] = BTree()
+        btree2.from_list([1, 2, 3])
+        self.assertEqual(btree2.reduce(lambda st, e: st + e, 0), 6)
 
         # size
         test_data: List[List[int]] = [
@@ -128,7 +128,7 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         ]
         for e in test_data:
             btree = BTree()
-        btree.from_list(e)
+            btree.from_list(e)
         self.assertEqual(btree.reduce(lambda st, _: st + 1, 0), btree.size())
 
     def test_next(self) -> None:
@@ -198,9 +198,9 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         btree4: BTree[T] = BTree()
         btree5: BTree[T] = BTree()
         self.assertEqual(BTree(btree5.
-                               concat(btree1.root, btree4.empty())).to_list(),
+                               concat(btree1.root, btree4.root)).to_list(),
                          BTree(btree5.
-                               concat(btree4.empty(), btree1.root)).to_list()
+                               concat(btree4.root, btree1.root)).to_list()
                          )
 
     def test_iter(self) -> None:
