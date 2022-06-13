@@ -186,11 +186,12 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
 
         # (a + b) + c = a + (b + c)
         btree_A2: BTree[T] = BTree(BTree().
-                         concat(BTree().
-                                concat(btree1.root, btree2.root), btree3.root))
+                                   concat(BTree().
+                                          concat(btree1.root, btree2.root),
+                                          btree3.root))
         btree_B2: BTree[T] = BTree(BTree().
-                         concat(btree1.root, BTree().
-                                concat(btree2.root, btree3.root)))
+                                   concat(btree1.root, BTree().
+                                          concat(btree2.root, btree3.root)))
         self.assertEqual(btree_A2.to_list(), btree_B2.to_list())
 
         # 0 + a = a + 0 = a
