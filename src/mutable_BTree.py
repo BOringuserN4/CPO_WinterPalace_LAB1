@@ -7,8 +7,8 @@ T2 = TypeVar('T2', bound=Union[None, str, int, float])
 
 
 class BTNode(Generic[T]):
-    def __init__(self, value: Any = None,
-                 left: Any = None, right: Any = None) -> None:
+    def __init__(self, value=None, left=None, right=None  # type: ignore
+                 ) -> None:
         """
         init the BTNode
         :param value: None
