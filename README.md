@@ -34,13 +34,21 @@ Group members information as follows.
 * `mutable_Tree_test.py` -- unit and PBT tests for `mutable_BTree`.
 
 ## Changelog
+The first lab of CPO
+HDU-ID: 212320024
+Name: Chen Chongzhong
+Date: 2022/06/13
+
+1.Fixed some problems.
+
+---
 
 The first lab of CPO
 HDU-ID: 212320024
 Name: Chen Chongzhong
 Date: 2022/05/14
 
-1.Fixed the type hints.
+1.Fixed type hints.
 
 ---
 
@@ -50,8 +58,6 @@ Name: Chen Chongzhong
 Date: 2022/05/09
 
 1.Add type hints.
-
----
 
 ---
 
