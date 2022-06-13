@@ -12,7 +12,7 @@ import unittest
 
 from hypothesis import given
 import hypothesis.strategies as st
-from typing import TypeVar, List, Generic
+from typing import Any, TypeVar, List, Generic
 from mutable_BTree import BTNode, BTree
 
 T = TypeVar('T')
@@ -104,11 +104,11 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         whether result is not determined?
         When changed whether to where, i can't understand what that means.
         '''
-        lst: List[int] = [0, -1, -2, -3, -4, -5]
-        btree: BTree[T] = BTree()
-        btree.from_list(lst)
-        btree.map(f)
-        self.assertEqual(btree.to_list(), [3, 1, 4, 0, 5, 2])
+        lst2: List[int] = [0, -1, -2, -3, -4, -5]
+        btree2: BTree[T] = BTree()
+        btree2.from_list(lst2)
+        btree2.map(f)
+        self.assertEqual(btree2.to_list(), [3, 1, 4, 0, 5, 2])
 
     def test_reduce(self) -> None:
         # sum of empty btree
@@ -121,7 +121,7 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         self.assertEqual(btree.reduce(lambda st, e: st + e, 0), 6)
 
         # size
-        test_data = [
+        test_data: List[List[int]] = [
             [],
             [1, 2],
             [1, 2, 3]
@@ -132,7 +132,7 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         self.assertEqual(btree.reduce(lambda st, _: st + 1, 0), btree.size())
 
     def test_next(self) -> None:
-        lst = [0, 1, 2, 3, 4, 5]
+        lst: List[int] = [0, 1, 2, 3, 4, 5]
         btree: BTree[T] = BTree()
         btree.from_list(lst)
 
@@ -185,29 +185,29 @@ class TestMutableBTree(unittest.TestCase, Generic[T]):
         btree3.from_list(c)
 
         # (a + b) + c = a + (b + c)
-        btree_A2 = BTree(BTree().
+        btree_A2: BTree[T] = BTree(BTree().
                          concat(BTree().
                                 concat(btree1.root, btree2.root), btree3.root))
-        btree_B2 = BTree(BTree().
+        btree_B2: BTree[T] = BTree(BTree().
                          concat(btree1.root, BTree().
                                 concat(btree2.root, btree3.root)))
         self.assertEqual(btree_A2.to_list(), btree_B2.to_list())
 
         # 0 + a = a + 0 = a
-        btree4 = BTree()
-        btree5 = BTree()
+        btree4: BTree[T] = BTree()
+        btree5: BTree[T] = BTree()
         self.assertEqual(BTree(btree5.
-                               concat(btree1.root, btree4.empty())).to_list(),
+                               concat(btree1.root, BTNode())).to_list(),
                          BTree(btree5.
-                               concat(btree4.empty(), btree1.root)).to_list()
+                               concat(BTNode(), btree1.root)).to_list()
                          )
 
     def test_iter(self) -> None:
-        lst = [0, 1, 2, 3, 4, 5]
+        lst: List[int] = [0, 1, 2, 3, 4, 5]
         btree: BTree[T] = BTree()
         btree.from_list(lst)
 
-        lst2 = []
+        lst2: List[Any] = []
         for item in btree.to_list():
             lst2.append(item)
         self.assertEqual(btree.to_list(), lst2)
