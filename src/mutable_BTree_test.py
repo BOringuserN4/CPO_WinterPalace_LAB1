@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# mypy: ignore-errors
 """
 For testing, you should use two approaches:
     • unit tests (for all features)
