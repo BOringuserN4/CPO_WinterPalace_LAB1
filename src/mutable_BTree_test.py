@@ -12,7 +12,7 @@ import unittest
 
 from hypothesis import given
 import hypothesis.strategies as st
-from typing import Any, TypeVar, List, Generic
+from typing import TypeVar, List, Generic
 from mutable_BTree import BTNode, BTree
 
 T = TypeVar('T')
