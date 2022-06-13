@@ -412,11 +412,11 @@ class BTree(Generic[T]):
     implement empty and concat methods
     """
 
-    def empty(self) -> None:
+    def empty(self) -> BTNode[T]:
         """
         Return a empty node
         """
-        return None
+        return BTNode()
 
     # According to my understanding, what this function
     # should return is the sum of two bt trees
